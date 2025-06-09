@@ -1,0 +1,28 @@
+{
+	"name": "@tldraw/analytics",
+	"version": "0.1.0",
+	"license": "",
+	"private": true,
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "tsc && vite build --outDir public",
+		"dev": "vite",
+		"lint": "yarn run -T tsx ../../internal/scripts/lint.ts"
+	},
+	"dependencies": {
+		"js-cookie": "^3.0.5",
+		"posthog-js": "^1.249.4",
+		"radix-ui": "^1.4.2",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-ga4": "^2.1.0"
+	},
+	"devDependencies": {
+		"@types/js-cookie": "^3.0.6",
+		"@types/react": "^19.1.6",
+		"@types/react-dom": "^19.1.6",
+		"@vitejs/plugin-react": "^4.5.1",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5"
+	}
+}

@@ -1,0 +1,54 @@
+{
+	"name": "@tldraw/simple-server-example",
+	"description": "A tiny little drawing app (example node/bun servers).",
+	"version": "0.0.0",
+	"private": true,
+	"author": {
+		"name": "tldraw GB Ltd.",
+		"email": "hello@tldraw.com"
+	},
+	"license": "MIT",
+	"main": "./src/server/server.ts",
+	"scripts": {
+		"dev-node": "concurrently -n server,client -c red,blue \"yarn dev-server-node\" \"yarn dev-client\"",
+		"dev-bun": "concurrently -n server,client -c red,blue \"yarn dev-server-bun\" \"yarn dev-client\"",
+		"dev-server-node": "yarn run -T tsx watch ./src/server/server.node.ts",
+		"dev-server-bun": "npx bun --watch ./src/server/server.bun.ts",
+		"dev-client": "vite dev",
+		"test-ci": "echo 'No tests yet'",
+		"test": "yarn run -T jest --passWithNoTests",
+		"test-coverage": "lazy inherit",
+		"lint": "yarn run -T tsx ../../scripts/lint.ts"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.2.15",
+		"@types/express": "^5.0.3",
+		"@types/ws": "^8.18.1",
+		"concurrently": "^9.1.2",
+		"lazyrepo": "0.0.0-alpha.27",
+		"tsx": "^4.19.4",
+		"typescript": "~5.8.3"
+	},
+	"jest": {
+		"preset": "../../internal/config/jest/node/jest-preset.js",
+		"moduleNameMapper": {
+			"^~(.*)": "<rootDir>/src/$1"
+		}
+	},
+	"dependencies": {
+		"@fastify/cors": "^11.0.1",
+		"@fastify/websocket": "^11.1.0",
+		"@tldraw/sync": "latest",
+		"@tldraw/sync-core": "latest",
+		"@vitejs/plugin-react-swc": "^3.10.1",
+		"fastify": "^5.3.3",
+		"itty-router": "^5.0.18",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-router-dom": "^7.6.2",
+		"tldraw": "latest",
+		"unfurl.js": "^6.4.0",
+		"vite": "^6.3.5",
+		"ws": "^8.18.2"
+	}
+}

@@ -1,0 +1,117 @@
+---
+title: Checkbox Card
+description: Used to select or deselect options displayed within cards.
+links:
+  source: components/checkbox-card
+  storybook: components-checkbox-card--basic
+  recipe: checkbox-card
+  ark: https://ark-ui.com/react/docs/components/checkbox
+---
+
+<ExampleTabs name="checkbox-card-basic" />
+
+## Usage
+
+```tsx
+import { CheckboxCard } from "@chakra-ui/react"
+```
+
+```tsx
+<CheckboxCard.Root>
+  <CheckboxCard.HiddenInput />
+  <CheckboxCard.Control>
+    <CheckboxCard.Content>
+      <CheckboxCard.Label />
+      <CheckboxCard.Description />
+    </CheckboxCard.Content>
+    <CheckboxCard.Indicator />
+  </CheckboxCard.Control>
+</CheckboxCard.Root>
+```
+
+:::info
+
+If you prefer a closed component composition, check out the
+[snippet below](#closed-component).
+
+:::
+
+## Examples
+
+### Description
+
+Use the `CheckboxCard.Description` component to add a description to the
+checkbox card.
+
+<ExampleTabs name="checkbox-card-with-description" />
+
+### Group
+
+Use the `CheckboxCardGroup` component to group multiple checkbox cards.
+
+<ExampleTabs name="checkbox-card-with-group" />
+
+### Sizes
+
+Pass the `size` prop to the `CheckboxCard.Root` component to change the size of
+the checkbox card.
+
+<ExampleTabs name="checkbox-card-with-sizes" />
+
+### Variants
+
+Use the `variant` prop to Pass the `variant` prop to the `CheckboxCard.Root`
+component to change the variant of the checkbox card.
+
+<ExampleTabs name="checkbox-card-with-variants" />
+
+### Disabled
+
+Pass the `disabled` prop to the `CheckboxCard.Root` component to make the
+checkbox card disabled.
+
+<ExampleTabs name="checkbox-card-disabled" />
+
+### Addon
+
+Render additional content within the `CheckboxCard.Addon` component to add some
+more context to the checkbox card.
+
+<ExampleTabs name="checkbox-card-with-addon" />
+
+### No Indicator
+
+Here's an example of how to use the checkbox card without an indicator.
+
+<ExampleTabs name="checkbox-card-no-indicator" />
+
+### Icon
+
+Here's an example of how to render custom icons within the checkbox card.
+
+<ExampleTabs name="checkbox-card-with-icon" />
+
+### Closed Component
+
+Here's how to setup the Checkbox card for a closed component composition.
+
+<ExampleCode name="checkbox-card-closed-component" />
+
+If you want to automatically add the closed component to your project, run the
+command:
+
+```bash
+npx @chakra-ui/cli snippet add checkbox-card
+```
+
+Here's how to use the it
+
+```tsx
+<CheckboxCard label="Checkbox Card" />
+```
+
+## Props
+
+### Root
+
+<PropTable component="CheckboxCard" part="Root" />

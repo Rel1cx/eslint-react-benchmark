@@ -1,0 +1,98 @@
+---
+title: Hover Card
+description: Used to display content when hovering over an element
+links:
+  source: components/hover-card
+  storybook: components-hover-card--basic
+  recipe: hover-card
+  ark: https://ark-ui.com/react/docs/components/hover-card
+---
+
+<ExampleTabs name="hover-card-basic" />
+
+## Usage
+
+```jsx
+import { HoverCard } from "@chakra-ui/react"
+```
+
+```jsx
+<HoverCard.Root>
+  <HoverCard.Trigger />
+  <HoverCard.Positioner>
+    <HoverCard.Content>
+      <HoverCard.Arrow>
+        <HoverCard.ArrowTip />
+      </HoverCard.Arrow>
+    </HoverCard.Content>
+  </HoverCard.Positioner>
+</HoverCard.Root>
+```
+
+## Shortcuts
+
+The `HoverCard` provides a shortcuts for common use cases.
+
+### Arrow
+
+The `HoverCard.Arrow` renders the `HoverCard.ArrowTip` component within in by
+default.
+
+This works:
+
+```jsx
+<HoverCard.Arrow>
+  <HoverCard.ArrowTip />
+</HoverCard.Arrow>
+```
+
+This might be more concise, if you don't need to customize the arrow tip.
+
+```jsx
+<HoverCard.Arrow />
+```
+
+## Examples
+
+### Controlled
+
+Use the `open` and `onOpenChange` to control the visibility of the hover card.
+
+<ExampleTabs name="hover-card-controlled" />
+
+### Delays
+
+Control the open and close delays using the `openDelay` and `closeDelay` props.
+
+<ExampleTabs name="hover-card-with-delay" />
+
+### Placement
+
+Use the `positioning.placement` prop to configure the underlying `floating-ui`
+positioning logic.
+
+<ExampleTabs name="hover-card-with-placement" />
+
+### Within Dialog
+
+Here's an example of how to use the `HoverCard` within a `Dialog` component.
+
+> Due to the focus trap within the dialog, it's important to change the portal
+> target from the document's body to the dialog's content.
+
+<ExampleTabs name="hover-card-in-dialog" />
+
+Alternatively, you can avoid portalling the `HoverCard.Positioner`
+
+## Accessibility
+
+HoverCard should be used solely for supplementary information that is not
+essential for understanding the context.
+
+It is inaccessible to screen readers and cannot be activated via keyboard, so
+avoid placing crucial content within it.
+
+## Props
+
+<PropTable component="HoverCard" part="Root" />
+```

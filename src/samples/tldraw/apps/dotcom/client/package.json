@@ -1,0 +1,103 @@
+{
+	"name": "dotcom",
+	"description": "The production app for tldraw.",
+	"version": "0.0.0",
+	"private": true,
+	"author": {
+		"name": "tldraw GB Ltd.",
+		"email": "hello@tldraw.com"
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"scripts": {
+		"dev": "./wait-for-postgres.sh && yarn run -T tsx scripts/dev-app.ts",
+		"build": "yarn run -T tsx scripts/build.ts",
+		"build-i18n": "yarn i18n:extract && yarn i18n:compile",
+		"start": "VITE_PREVIEW=1 yarn run -T tsx scripts/dev-app.ts",
+		"lint": "yarn run -T tsx ../../../internal/scripts/lint.ts",
+		"test-ci": "lazy inherit",
+		"test": "yarn run -T jest",
+		"i18n:extract": "formatjs extract 'src/{tla,pages,components}/**/*.ts*' --out-file public/tla/locales/en.json --additional-component-names F --id-interpolation-pattern '[md5:contenthash:hex:10]' --format lokalise",
+		"i18n:compile": "formatjs compile-folder public/tla/locales public/tla/locales-compiled --format lokalise",
+		"e2e": "rm -rf 'e2e/.auth' && yarn playwright test",
+		"e2e-x10": "yarn playwright test --repeat-each=10",
+		"e2e-debug": "yarn playwright test --debug",
+		"e2e-ui": "yarn playwright test --ui"
+	},
+	"dependencies": {
+		"@clerk/clerk-react": "^5.31.9",
+		"@rocicorp/zero": "0.19.2025050203",
+		"@sentry/integrations": "^7.120.3",
+		"@sentry/react": "^9.27.0",
+		"@tldraw/assets": "workspace:*",
+		"@tldraw/dotcom-shared": "workspace:*",
+		"@tldraw/sync": "workspace:*",
+		"@tldraw/sync-core": "workspace:*",
+		"@tldraw/utils": "workspace:*",
+		"@types/regexgen": "^1.3.3",
+		"@vercel/analytics": "^1.5.0",
+		"browser-fs-access": "^0.37.0",
+		"classnames": "^2.5.1",
+		"idb": "^8.0.3",
+		"intl-messageformat": "^10.7.16",
+		"lodash.isequal": "^4.5.0",
+		"lodash.pick": "^4.4.0",
+		"md5": "^2.3.0",
+		"posthog-js": "^1.249.4",
+		"qrcode": "^1.5.4",
+		"radix-ui": "^1.4.2",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-ga4": "^2.1.0",
+		"react-helmet-async": "^2.0.5",
+		"react-intl": "^7.1.11",
+		"react-router-dom": "^7.6.2",
+		"tldraw": "workspace:*"
+	},
+	"devDependencies": {
+		"@clerk/testing": "^1.8.0",
+		"@formatjs/cli": "^6.7.1",
+		"@jest/globals": "30.0.0-alpha.2",
+		"@playwright/test": "^1.52.0",
+		"@sentry/cli": "^2.46.0",
+		"@tldraw/validate": "workspace:*",
+		"@types/lodash.pick": "^4.4.9",
+		"@types/md5": "^2.3.5",
+		"@types/node": "~22.15.30",
+		"@types/qrcode": "^1.5.5",
+		"@types/react": "^19.1.6",
+		"@vitejs/plugin-react-swc": "^3.10.1",
+		"dotenv": "^16.5.0",
+		"eslint": "^9.28.0",
+		"eslint-plugin-formatjs": "^5.3.1",
+		"fast-glob": "^3.3.3",
+		"identity-obj-proxy": "^3.0.0",
+		"json5": "^2.2.3",
+		"kysely": "^0.28.2",
+		"lazyrepo": "0.0.0-alpha.27",
+		"pg": "^8.16.0",
+		"regexgen": "^1.3.0",
+		"vite": "^6.3.5",
+		"ws": "^8.18.2"
+	},
+	"jest": {
+		"preset": "../../../internal/config/jest/node/jest-preset.js",
+		"roots": [
+			"<rootDir>"
+		],
+		"testEnvironment": "../../../packages/utils/patchedJestJsDom.js",
+		"transformIgnorePatterns": [
+			"node_modules/(?!(nanoevents)/)"
+		],
+		"moduleNameMapper": {
+			"\\.(css|less)$": "identity-obj-proxy"
+		},
+		"setupFiles": [
+			"./setupTests.js"
+		],
+		"testPathIgnorePatterns": [
+			"/e2e/"
+		]
+	}
+}

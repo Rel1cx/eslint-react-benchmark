@@ -1,0 +1,105 @@
+{
+	"name": "tldraw",
+	"description": "A tiny little drawing editor.",
+	"version": "3.13.1",
+	"author": {
+		"name": "tldraw Inc.",
+		"email": "hello@tldraw.com"
+	},
+	"homepage": "https://tldraw.dev",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tldraw/tldraw"
+	},
+	"bugs": {
+		"url": "https://github.com/tldraw/tldraw/issues"
+	},
+	"keywords": [
+		"tldraw",
+		"drawing",
+		"app",
+		"development",
+		"whiteboard",
+		"canvas",
+		"infinite"
+	],
+	"/* NOTE */": "These `main` and `types` fields are rewritten by the build script. They are not the actual values we publish",
+	"main": "./src/index.ts",
+	"types": "./.tsbuild/index.d.ts",
+	"scripts": {
+		"test-ci": "lazy inherit",
+		"test": "yarn run -T jest",
+		"test-coverage": "lazy inherit",
+		"predev": "node ./scripts/copy-css-files.mjs",
+		"dev": "chokidar '../{editor/editor,tldraw/src/lib/ui}.css' -c 'node ./scripts/copy-css-files.mjs'",
+		"prebuild": "node ./scripts/copy-css-files.mjs",
+		"build": "yarn run -T tsx ../../internal/scripts/build-package.ts",
+		"build-api": "yarn run -T tsx ../../internal/scripts/build-api.ts",
+		"prepack": "yarn run -T tsx ../../internal/scripts/prepack.ts",
+		"postpack": "../../internal/scripts/postpack.sh",
+		"pack-tarball": "yarn pack",
+		"lint": "yarn run -T tsx ../../internal/scripts/lint.ts"
+	},
+	"files": [
+		"tldraw.css"
+	],
+	"dependencies": {
+		"@tiptap/core": "^2.14.0",
+		"@tiptap/extension-code": "^2.14.0",
+		"@tiptap/extension-highlight": "^2.14.0",
+		"@tiptap/extension-link": "^2.14.0",
+		"@tiptap/pm": "^2.14.0",
+		"@tiptap/react": "^2.14.0",
+		"@tiptap/starter-kit": "^2.14.0",
+		"@tldraw/editor": "workspace:*",
+		"@tldraw/store": "workspace:*",
+		"classnames": "^2.5.1",
+		"hotkeys-js": "^3.13.10",
+		"idb": "^8.0.3",
+		"lodash.isequal": "^4.5.0",
+		"lz-string": "^1.5.0",
+		"radix-ui": "^1.4.2"
+	},
+	"peerDependencies": {
+		"react": "^18.2.0 || ^19.0.0",
+		"react-dom": "^18.2.0 || ^19.0.0"
+	},
+	"devDependencies": {
+		"@peculiar/webcrypto": "^1.5.0",
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/react": "^16.3.0",
+		"@types/classnames": "^2.3.4",
+		"@types/lz-string": "^1.5.0",
+		"@types/react": "^19.1.6",
+		"chokidar-cli": "^3.0.0",
+		"jest-canvas-mock": "^2.5.2",
+		"jest-environment-jsdom": "^30.0.0-beta.3",
+		"lazyrepo": "0.0.0-alpha.27",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"resize-observer-polyfill": "^1.5.1"
+	},
+	"jest": {
+		"preset": "../../internal/config/jest/node/jest-preset.js",
+		"testEnvironment": "../../../packages/utils/patchedJestJsDom.js",
+		"fakeTimers": {
+			"enableGlobally": true
+		},
+		"testPathIgnorePatterns": [
+			"^.+\\.*.css$"
+		],
+		"moduleNameMapper": {
+			"^~(.*)": "<rootDir>/src/$1",
+			"\\.(css|less|scss|sass)$": "identity-obj-proxy"
+		},
+		"setupFiles": [
+			"raf/polyfill",
+			"jest-canvas-mock",
+			"<rootDir>/setupTests.js"
+		],
+		"setupFilesAfterEnv": [
+			"../../internal/config/setupJest.ts"
+		]
+	}
+}

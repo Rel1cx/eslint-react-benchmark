@@ -1,0 +1,627 @@
+.sidebar {
+	position: absolute;
+	display: flex;
+	top: 0px;
+	left: calc(var(--tla-sidebar-width) * -1);
+	height: 100%;
+	width: var(--tla-sidebar-width);
+	z-index: 100;
+	transform: translate(0px, 0px);
+	flex-direction: column;
+	flex: 0 0 auto;
+	padding: 3px 12px 0px 12px;
+	background: var(--tla-color-sidebar);
+	border-right: 1px solid transparent;
+	transition: transform 0.16s ease-in-out;
+}
+
+.sidebarDragOverlay {
+	position: absolute;
+	inset: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 600;
+	z-index: 1000;
+	background-color: var(--tla-color-sidebar);
+	content: 'Upload .tldr files';
+	opacity: 0;
+	animation: 0.2s fade-in 0.25s forwards;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.sidebarOverlayMobile {
+	all: unset;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	background-color: var(--tla-color-overlay);
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.sidebar {
+		border-right: 1px solid var(--color-low);
+	}
+	.sidebar[data-visible='true'] {
+		transform: translate(100%, 0px);
+		transition: transform 0.22s ease-out;
+	}
+}
+
+@media (max-width: 767px) {
+	.sidebar {
+		--w: min(320px, max(220px, calc(100vw - 100px)));
+		left: calc(var(--w) * -1);
+		width: var(--w);
+		transition: none;
+	}
+
+	.sidebar[data-visiblemobile='true'] {
+		transform: translate(100%, 0px);
+	}
+
+	.sidebarOverlayMobile[data-visiblemobile='true'] {
+		display: block;
+	}
+}
+
+.sidebarContent {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-bottom: 40px;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.sidebarContent::-webkit-scrollbar {
+	display: none;
+}
+
+/* -------------------- Hoverable ------------------- */
+
+.hoverable::after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	right: 0px;
+	bottom: 2px;
+	border-radius: 4px;
+	background-color: var(--tla-color-hover-1);
+	z-index: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+.hoverable:has(*[data-state='open'])::after,
+.hoverable[data-active='true']::after {
+	background-color: var(--tla-color-hover-2);
+	visibility: visible;
+}
+
+.hoverable:has(*[data-state='open']) .collaborator {
+	display: none;
+}
+
+@media (hover: hover) {
+	.hoverable:hover::after {
+		visibility: visible;
+	}
+
+	.hoverable {
+		color: var(--tla-color-text-2);
+	}
+	.hoverable[data-active='true'],
+	.hoverable:hover {
+		color: var(--tla-color-text-1);
+	}
+}
+
+/* ----------------- Sidebar toggle ----------------- */
+
+.sidebarToggle {
+	position: relative;
+	background: none;
+	border: none;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	color: var(--tla-color-text-1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: all;
+	flex-shrink: 0;
+	padding: 0px;
+}
+
+@media (hover: hover) {
+	.sidebarToggle:hover {
+		z-index: 100;
+	}
+}
+
+.sidebarToggle::after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	right: 4px;
+	bottom: 4px;
+	border-radius: 4px;
+	pointer-events: none;
+	z-index: 0;
+	visibility: hidden;
+	background-color: var(--tla-color-hover-1);
+}
+
+@media (hover: hover) {
+	.sidebarToggle:hover::after {
+		visibility: visible;
+	}
+}
+
+.sidebarToggle[data-mobile='true'] {
+	display: flex;
+}
+
+.sidebarToggle[data-mobile='false'] {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.sidebarToggle[data-mobile='true'] {
+		display: none;
+	}
+
+	.sidebarToggle[data-mobile='false'] {
+		display: flex;
+	}
+}
+
+/* --------------------- Top area -------------------- */
+
+.sidebarTopRow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 0 0 auto;
+}
+
+/* Workspace link (sort of) */
+
+.sidebarWorkspaceButton {
+	background: none;
+	border: none;
+	position: relative;
+	height: 40px;
+	flex-grow: 2;
+	display: flex;
+	align-items: center;
+	padding-right: 6px;
+	padding-left: 2px;
+	background-color: var(--tla-color-sidebar);
+	overflow: hidden;
+	padding-bottom: 1px;
+}
+
+.sidebarWorkspaceButtonLabel {
+	/* for alignment with other buttons */
+	display: block;
+	flex-grow: 2;
+	flex: 1 1 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 0px;
+	position: relative;
+	z-index: 1;
+}
+
+/* Create file button */
+
+.sidebarCreateFileButton {
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	top: 0.5px;
+	right: -10px;
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--tla-color-text-1);
+	flex-shrink: 0;
+	padding: 0px;
+	z-index: 10;
+}
+
+.sidebarCreateFileButton::after {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	right: 4px;
+	bottom: 4px;
+	border-radius: 4px;
+	pointer-events: none;
+	z-index: 0;
+	visibility: hidden;
+	background-color: var(--tla-color-hover-1);
+}
+
+@media (hover: hover) {
+	.sidebar:hover .sidebarCreateFileButton:hover::after {
+		visibility: visible;
+	}
+}
+
+/* ------------------- Bottom area ------------------ */
+
+.sidebarBottomArea {
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 auto;
+	margin-top: 0px;
+}
+
+/* --------------------- Cookie --------------------- */
+
+.sidebarCookieConsent {
+	background: var(--tla-color-sidebar);
+	border-radius: 8px;
+	padding: 6px;
+	max-width: 240px;
+	box-shadow: var(--tla-shadow-3);
+	margin-bottom: 12px;
+}
+
+.sidebarCookieText {
+	padding: 8px;
+	padding-bottom: 12px;
+	font-size: 12px;
+	color: var(--tla-color-text-2);
+	line-height: 1.4;
+}
+
+.sidebarCookieText a {
+	color: var(--tla-color-primary);
+}
+
+.sidebarCookieButtonsRow {
+	display: flex;
+	gap: 4px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.sidebarCookieButtons {
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+
+.sidebarCookieButton {
+	background: none;
+	position: relative;
+	border: none;
+	padding: 4px 8px;
+	color: var(--tla-color-text-3);
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 4px;
+	flex-shrink: 0;
+}
+
+.sidebarCookieAcceptButton {
+	color: var(--tla-color-sidebar);
+	background-color: var(--tla-color-cta);
+}
+
+@media (hover: hover) {
+	.sidebarCookieAcceptButton:hover {
+		color: var(--tla-color-sidebar);
+	}
+}
+
+/* ------------------- Bottom row ------------------- */
+
+.sidebarBottomRow {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex: 0 0 auto;
+}
+
+/* User settings menu */
+
+.userSettingsTrigger {
+	background: none;
+	border: none;
+	position: relative;
+	height: 40px;
+	flex-grow: 2;
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-right: 6px;
+	padding-left: 2px;
+	padding: 0px 0px 0px 8px;
+	gap: 0px;
+	text-align: left;
+	cursor: pointer;
+}
+
+.userSettingsTrigger::after {
+	inset: 2px 8px 2px 0px;
+}
+
+.userSettingsName {
+	flex: 1 1 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.userSettingsIcon {
+	margin-right: 16px;
+	color: var(--tla-color-text-3);
+}
+
+@media (hover: hover) {
+	.userSettingsTrigger {
+		color: var(--tla-color-text-3);
+	}
+
+	.userSettingsTrigger:hover {
+		color: var(--tla-color-text-1);
+	}
+
+	.userSettingsIcon {
+		visibility: hidden;
+	}
+
+	.userSettingsTrigger:hover .userSettingsIcon {
+		visibility: visible;
+		color: var(--tla-color-text-1);
+	}
+}
+
+.userSettingsTrigger[data-state='open']::after {
+	visibility: visible;
+}
+
+.userSettingsTrigger[data-state='open'] .userSettingsIcon {
+	visibility: visible;
+}
+
+/* Help menu */
+
+.helpMenuTrigger {
+	height: 36px;
+	width: 36px;
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	cursor: pointer;
+	border: none;
+	color: var(--tla-color-text-3);
+	background: none;
+	margin-right: -2px;
+}
+
+.helpMenuTrigger::after {
+	border-radius: 100%;
+	inset: 4px;
+	visibility: visible;
+	border: 1px solid var(--tla-color-border);
+	background-color: transparent;
+}
+
+@media (hover: hover) {
+	.helpMenuTrigger:hover::after {
+		background-color: var(--tla-color-hover-1);
+	}
+}
+
+.helpMenuTrigger[data-state='open']::after {
+	background-color: var(--tla-color-hover-1);
+}
+
+/* ---------------- File link section --------------- */
+
+.section {
+	background: var(--tla-color-sidebar);
+}
+
+.sectionTitle {
+	position: relative;
+	width: 100%;
+	height: 36px;
+	padding: 0px 8px 0px 8px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	overflow: hidden;
+	gap: 4px;
+	font-weight: bold;
+	color: var(--tla-color-text-3);
+}
+
+/* ------------------- File links ------------------- */
+
+.sidebarFileLink {
+	background-color: var(--tla-color-sidebar);
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 36px;
+	padding: 0px 8px 0px 8px;
+}
+
+.sidebarFileLinkContent {
+	flex: 1 1 auto;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 8px;
+	position: relative;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.sidebarFileLinkLabel {
+	flex: 1 1 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0 0px;
+	position: relative;
+	z-index: 1;
+	padding: 0px;
+	flex: 0 1 auto;
+}
+
+.sidebarFileLinkButton {
+	padding: 0px;
+	background: none;
+	border: none;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	width: calc(100% - 6px);
+	height: 100%;
+	cursor: pointer;
+	z-index: 2;
+	pointer-events: all;
+}
+
+/* Menu / context menu */
+
+.sidebarFileLinkMenu {
+	padding: 0px;
+	background: none;
+	border: none;
+	position: relative;
+	outline: none;
+	margin-right: -10px;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--tla-color-text-3);
+	flex: 0 0 auto;
+	z-index: 3;
+	cursor: pointer;
+}
+
+@media (hover: hover) {
+	.sidebarFileLinkMenu {
+		display: none;
+	}
+	/*
+		For guest files we show a guest icon at the end of the filename
+		but we don't want it to jump out of the way when the user hovers
+	*/
+	.sidebarFileLink[data-is-own-file='false'] .sidebarFileLinkMenu {
+		visibility: hidden;
+		display: flex;
+	}
+	:global(.tla:has(.tl-container__focused:not(.tl-container__no-focus-ring))) .sidebarFileLinkMenu {
+		visibility: visible;
+		display: flex;
+	}
+
+	.sidebarFileLink .sidebarFileLinkMenu[data-state='open'],
+	.sidebarFileLink:hover .sidebarFileLinkMenu {
+		visibility: visible;
+		display: flex;
+	}
+
+	.sidebarFileLinkMenu:hover {
+		color: var(--tla-color-text-1);
+	}
+}
+
+/* Renaming */
+
+.sidebarFileLinkRenameInputWrapper {
+	background-color: var(--tla-color-sidebar);
+	outline: 1px solid var(--color-primary);
+	outline-offset: -2px;
+	border-radius: 6px;
+}
+
+.sidebarFileLinkRenameInputWrapper > div {
+	height: 36px;
+	padding: 0px 8px 0px 8px;
+}
+
+.sidebarFileLinkRenameInput {
+	height: 36px;
+	flex: 1 1 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: relative;
+	z-index: 1;
+}
+
+/* Guest badge */
+
+.sidebarFileLinkGuestBadge {
+	display: inline-flex;
+	pointer-events: none;
+	flex: 0 0 auto;
+}
+
+.sidebarFileLinkGuestBadgeTrigger {
+	margin-left: 4px;
+	border-radius: 50%;
+	overflow: hidden;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	border: none;
+	width: 14px;
+	height: 14px;
+	z-index: 3;
+	padding: 0;
+	background: none;
+	pointer-events: all;
+	cursor: pointer;
+	color: var(--tla-color-text-1);
+}

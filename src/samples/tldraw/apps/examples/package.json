@@ -1,0 +1,73 @@
+{
+	"name": "examples.tldraw.com",
+	"description": "A tiny little drawing app (examples).",
+	"version": "0.0.0",
+	"private": true,
+	"author": {
+		"name": "tldraw Inc.",
+		"email": "hello@tldraw.com"
+	},
+	"homepage": "https://tldraw.dev",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tldraw/tldraw"
+	},
+	"bugs": {
+		"url": "https://github.com/tldraw/tldraw/issues"
+	},
+	"keywords": [
+		"tldraw",
+		"drawing",
+		"app",
+		"development",
+		"whiteboard",
+		"canvas",
+		"infinite"
+	],
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"lint": "yarn run -T tsx ../../internal/scripts/lint.ts",
+		"e2e": "playwright test -c ./e2e/playwright.config.ts",
+		"e2e-ui": "playwright test --ui -c ./e2e/playwright.config.ts"
+	},
+	"dependencies": {
+		"@playwright/test": "^1.52.0",
+		"@tiptap/core": "^2.14.0",
+		"@tiptap/extension-font-family": "^2.14.0",
+		"@tiptap/extension-text-style": "^2.14.0",
+		"@tiptap/pm": "^2.14.0",
+		"@tiptap/starter-kit": "^2.14.0",
+		"@tldraw/assets": "workspace:*",
+		"@tldraw/dotcom-shared": "workspace:*",
+		"@tldraw/state": "workspace:*",
+		"@tldraw/sync": "workspace:*",
+		"@vercel/analytics": "^1.5.0",
+		"ag-grid-community": "^33.3.2",
+		"ag-grid-react": "^33.3.2",
+		"axe-core": "^4.10.3",
+		"classnames": "^2.5.1",
+		"lazyrepo": "0.0.0-alpha.27",
+		"lodash": "^4.17.21",
+		"pdf-lib": "^1.17.1",
+		"pdfjs-dist": "^5.3.31",
+		"radix-ui": "^1.4.2",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-helmet-async": "^2.0.5",
+		"react-router-dom": "^7.6.2",
+		"tldraw": "workspace:*",
+		"vite": "^6.3.5"
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.17.17",
+		"@types/react": "^19.1.6",
+		"@vitejs/plugin-react-swc": "^3.10.1",
+		"dotenv": "^16.5.0",
+		"remark": "^15.0.1",
+		"remark-frontmatter": "^5.0.0",
+		"remark-html": "^16.0.1",
+		"vfile-matter": "^5.0.1"
+	}
+}

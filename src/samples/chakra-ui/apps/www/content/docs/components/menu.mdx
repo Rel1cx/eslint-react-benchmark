@@ -1,0 +1,173 @@
+---
+title: Menu
+description: Used to create an accessible dropdown menu
+links:
+  source: components/menu
+  storybook: components-menu--basic
+  recipe: menu
+  ark: https://ark-ui.com/react/docs/components/menu
+---
+
+<ExampleTabs name="menu-basic" />
+
+## Usage
+
+```tsx
+import { Menu } from "@chakra-ui/react"
+```
+
+```tsx
+<Menu.Root>
+  <Menu.Trigger />
+  <Menu.Positioner>
+    <Menu.Content>
+      <Menu.Item />
+
+      <Menu.ItemGroup>
+        <Menu.Item />
+      </Menu.ItemGroup>
+
+      <Menu.Separator />
+      <Menu.Arrow />
+
+      <Menu.CheckboxItem>
+        <Menu.ItemIndicator />
+      </Menu.CheckboxItem>
+
+      <Menu.RadioItemGroup>
+        <Menu.RadioItem>
+          <Menu.ItemIndicator />
+        </Menu.RadioItem>
+      </Menu.RadioItemGroup>
+    </Menu.Content>
+  </Menu.Positioner>
+</Menu.Root>
+```
+
+## Examples
+
+### Command
+
+Use the `Menu.ItemCommand` component to display a command in the menu.
+
+<ExampleTabs name="menu-with-command" />
+
+### Context menu
+
+Use the `Menu.ContextTrigger` component to create a context menu.
+
+<ExampleTabs name="menu-with-context-trigger" />
+
+### Group
+
+Use the `Menu.ItemGroup` component to group related menu items.
+
+<ExampleTabs name="menu-with-group" />
+
+### Danger Item
+
+Here's an example of how to style a menu item that is used to delete an item.
+
+<ExampleTabs name="menu-with-danger-item" />
+
+### Submenu
+
+Here's an example of how to create a submenu.
+
+<ExampleTabs name="menu-with-submenu" />
+
+### Links
+
+Pass the `asChild` prop to the `Menu.Item` component to render a link.
+
+<ExampleTabs name="menu-with-links" />
+
+When using custom router links, you need to set the `navigate` prop on the
+`Menu.Root` component.
+
+```tsx
+"use client"
+
+import { Menu } from "@chakra-ui/react"
+import { useNavigate } from "react-router-dom"
+
+const Demo = () => {
+  const navigate = useNavigate()
+  return (
+    <Menu.Root navigate={({ value, node }) => navigate(`/${value}`)}>
+      {/* ... */}
+    </Menu.Root>
+  )
+}
+```
+
+### Radio Items
+
+Here's an example of how to create a menu with radio items.
+
+<ExampleTabs name="menu-with-radio-items" />
+
+### Checkbox Items
+
+Here's an example of how to create a menu with checkbox items.
+
+<ExampleTabs name="menu-with-checkbox-items" />
+
+### Icon and Command
+
+Compose the menu to include icons and commands.
+
+<ExampleTabs name="menu-with-icon-and-command" />
+
+### Placement
+
+Use the `positioning.placement` prop to control the placement of the menu.
+
+<ExampleTabs name="menu-with-placement" />
+
+### Anchor Point
+
+Use the `positioning.anchorPoint` prop to control the anchor point of the menu.
+
+You can derive it from the `getBoundingClientRect` of a DOM element, or use
+something like `DOMRect.fromRect({ x: 0, y: 0, width: 1, height: 1 })` to create
+a new rect.
+
+<ExampleTabs name="menu-with-anchor-rect" />
+
+### Mixed Layout
+
+Here's an example of how to create a mixed layout of menu items. In this layout,
+the top horizontal menu includes common menu items.
+
+<ExampleTabs name="menu-with-mixed-layout" />
+
+### Hide When Detached
+
+When the menu is rendered in an scrolling container, set the
+`positioning.hideWhenDetached` to `true` to hide the menu when the trigger is
+scrolled out of view.
+
+<ExampleTabs name="menu-with-hide-when-detached" />
+
+### Within Dialog
+
+Here's an example of how to use the menu within a `Dialog` or `Drawer`
+component.
+
+> Due to the focus trap within the dialog, it's important to change the portal
+> target from the document's body to the dialog's content.
+
+Alternatively, you can avoid portalling the `Menu.Positioner`
+
+<ExampleTabs name="menu-within-dialog" />
+
+## Props
+
+### Root
+
+<PropTable component="Menu" part="Root" />
+
+### Item
+
+<PropTable component="Menu" part="Item" />

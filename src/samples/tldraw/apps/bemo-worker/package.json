@@ -1,0 +1,48 @@
+{
+	"name": "@tldraw/bemo-worker",
+	"description": "A tiny little drawing app (merge server).",
+	"version": "0.0.0",
+	"private": true,
+	"author": {
+		"name": "tldraw GB Ltd.",
+		"email": "hello@tldraw.com"
+	},
+	"main": "./src/worker.ts",
+	"/* GOTCHA */": "files will include ./dist and index.d.ts by default, add any others you want to include in here",
+	"files": [],
+	"scripts": {
+		"dev": "yarn run -T tsx ../../internal/scripts/workers/dev.ts",
+		"test-ci": "lazy inherit",
+		"test": "yarn run -T jest",
+		"test-coverage": "lazy inherit",
+		"check-bundle-size": "yarn run -T tsx ../../internal/scripts/check-worker-bundle.ts --entry src/worker.ts --size-limit-bytes 350000",
+		"lint": "yarn run -T tsx ../../internal/scripts/lint.ts"
+	},
+	"dependencies": {
+		"@tldraw/dotcom-shared": "workspace:*",
+		"@tldraw/store": "workspace:*",
+		"@tldraw/sync-core": "workspace:*",
+		"@tldraw/tlschema": "workspace:*",
+		"@tldraw/utils": "workspace:*",
+		"@tldraw/validate": "workspace:*",
+		"@tldraw/worker-shared": "workspace:*",
+		"itty-router": "^5.0.18",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20250607.0",
+		"@types/react": "^19.1.6",
+		"@types/react-dom": "^19.1.6",
+		"esbuild": "^0.25.5",
+		"lazyrepo": "0.0.0-alpha.27",
+		"typescript": "~5.8.3",
+		"wrangler": "^4.19.1"
+	},
+	"jest": {
+		"preset": "../../internal/config/jest/node/jest-preset.js",
+		"moduleNameMapper": {
+			"^~(.*)": "<rootDir>/src/$1"
+		}
+	}
+}
