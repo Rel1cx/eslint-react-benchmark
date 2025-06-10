@@ -1,5 +1,5 @@
-import eslintJs from "@eslint/js";
 import eslintReact from "@eslint-react/eslint-plugin";
+import eslintJs from "@eslint/js";
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginReactHooks from "eslint-plugin-react-hooks";
 import eslintPluginReactRefresh from "eslint-plugin-react-refresh";
