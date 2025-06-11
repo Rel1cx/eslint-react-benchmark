@@ -308,3 +308,4 @@ The following rules show significant differences in execution time between `esli
 - The dry run took **17s**.
 - Linting with `eslint-plugin-react` took **1m0s**, which is **43s** longer than the dry run.
 - Linting with `@eslint-react/eslint-plugin` took **27s**, which is **10s** longer than the dry run.
+- The `@eslint-react/eslint-plugin` is average **4.3x** faster than `eslint-plugin-react` across the linting process.
