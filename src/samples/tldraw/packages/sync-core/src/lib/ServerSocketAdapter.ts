@@ -36,7 +36,7 @@ export interface ServerSocketAdapterOptions<R extends UnknownRecord> {
 /** @internal */
 export class ServerSocketAdapter<R extends UnknownRecord> implements TLRoomSocket<R> {
 	constructor(public readonly opts: ServerSocketAdapterOptions<R>) {}
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get isOpen(): boolean {
 		return this.opts.ws.readyState === 1 // ready state open
 	}

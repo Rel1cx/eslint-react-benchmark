@@ -72,7 +72,7 @@ export function useMediaQuery(
     const cleanups = mql.map((v) => listen(v, handler))
     return () => cleanups.forEach((fn) => fn())
 
-    // eslint-disable-next-line
+     
   }, [getWin])
 
   return value.map((item) => item.matches)

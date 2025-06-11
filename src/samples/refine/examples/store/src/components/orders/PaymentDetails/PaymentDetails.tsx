@@ -32,7 +32,7 @@ const StripeDetails = ({ payment }: { payment: Payment }) => {
     last4: string;
     exp_year: number;
     exp_month: number;
-  } = (payment.data.charges as any).data[0].payment_method_details.card; // eslint-disable-line
+  } = (payment.data.charges as any).data[0].payment_method_details.card;  
 
   return (
     <div className="text-base-regular flex flex-col">

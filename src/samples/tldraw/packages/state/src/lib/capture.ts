@@ -193,7 +193,7 @@ function collectChangedAncestors(
 function logChangedAncestors(child: Child, ancestorEpochs: Map<Signal<any>, number>) {
 	const changeTree = collectChangedAncestors(child, ancestorEpochs)
 	if (Object.keys(changeTree).length === 0) {
-		// eslint-disable-next-line no-console
+		 
 		console.log(`Effect(${child.name}) was executed manually.`)
 		return
 	}
@@ -216,6 +216,6 @@ function logChangedAncestors(child: Child, ancestorEpochs: Map<Signal<any>, numb
 
 	logParent(changeTree, 1)
 
-	// eslint-disable-next-line no-console
+	 
 	console.log(str)
 }

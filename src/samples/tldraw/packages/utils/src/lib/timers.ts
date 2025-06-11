@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-properties */
+ 
 
 /** @public */
 export class Timers {

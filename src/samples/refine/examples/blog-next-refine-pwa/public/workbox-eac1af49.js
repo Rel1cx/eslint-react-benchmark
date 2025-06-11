@@ -468,7 +468,7 @@ define(["exports"], (exports) => {
 
   const isArrayOfClass = (
     value, // Need general type to do check later.
-    expectedClass, // eslint-disable-line
+    expectedClass,  
     details,
   ) => {
     const error = new WorkboxError("not-array-of-class", details);
@@ -1026,7 +1026,7 @@ define(["exports"], (exports) => {
             // Instead of passing an empty array in as params, use undefined.
             params = undefined;
           } else if (
-            matchResult.constructor === Object && // eslint-disable-line
+            matchResult.constructor === Object &&  
             Object.keys(matchResult).length === 0
           ) {
             // Instead of passing an empty object in as params, use undefined.
@@ -1856,7 +1856,7 @@ define(["exports"], (exports) => {
               request: effectiveRequest,
               event: this.event,
               // params has a type any can't change right now.
-              params: this.params, // eslint-disable-line
+              params: this.params,  
             }),
           );
         }

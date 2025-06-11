@@ -86,7 +86,7 @@ export class TestSocketPair<R extends UnknownRecord> {
 		onStatusChange: null as null | TLSocketStatusListener,
 	}
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get isConnected() {
 		return this.clientSocket.connectionStatus === 'online'
 	}

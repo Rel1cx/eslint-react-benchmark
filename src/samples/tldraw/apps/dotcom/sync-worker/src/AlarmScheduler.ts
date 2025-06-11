@@ -47,7 +47,7 @@ export class AlarmScheduler<Key extends string> {
 					await alarm()
 					successfullyExecutedAlarms.add(cleanedKey)
 				} catch (err) {
-					// eslint-disable-next-line no-console
+					 
 					console.log(`Error firing alarm ${cleanedKey}:`, err)
 					shouldRetry = true
 				}

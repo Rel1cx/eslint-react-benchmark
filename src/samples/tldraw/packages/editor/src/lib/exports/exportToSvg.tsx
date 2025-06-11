@@ -72,7 +72,7 @@ export async function exportToSvg(
 
 		return { svg, width: result.width, height: result.height }
 	} finally {
-		// eslint-disable-next-line no-restricted-globals
+		 
 		setTimeout(() => {
 			// we wait for a cycle of the event loop to allow the svg to be cloned etc. before
 			// unmounting

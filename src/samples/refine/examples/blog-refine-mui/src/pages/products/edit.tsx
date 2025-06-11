@@ -69,7 +69,7 @@ export const ProductEdit = () => {
         <Controller
           control={control}
           name="isActive"
-          // eslint-disable-next-line
+           
           defaultValue={null as any}
           render={({ field }) => (
             <FormControlLabel
@@ -121,7 +121,7 @@ export const ProductEdit = () => {
           control={control}
           name="category"
           rules={{ required: "This field is required" }}
-          // eslint-disable-next-line
+           
           defaultValue={null as any}
           render={({ field }) => (
             <Autocomplete

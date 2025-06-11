@@ -179,11 +179,11 @@ export class LicenseManager {
 
 		if (this.isDevelopment && !this.isCryptoAvailable) {
 			if (this.verbose) {
-				// eslint-disable-next-line no-console
+				 
 				console.log(
 					'tldraw: you seem to be in a development environment that does not support crypto. License not verified.'
 				)
-				// eslint-disable-next-line no-console
+				 
 				console.log('You should check that this works in production separately.')
 			}
 			// We can't parse the license if we are in development mode since crypto
@@ -346,7 +346,7 @@ export class LicenseManager {
 		if (this.verbose) {
 			this.outputDelimiter()
 			for (const message of messages) {
-				// eslint-disable-next-line no-console
+				 
 				console.log(
 					`%c${message}`,
 					`color: white; background: crimson; padding: 2px; border-radius: 3px;`
@@ -357,7 +357,7 @@ export class LicenseManager {
 	}
 
 	private outputDelimiter() {
-		// eslint-disable-next-line no-console
+		 
 		console.log(
 			'%c-------------------------------------------------------------------',
 			`color: white; background: crimson; padding: 2px; border-radius: 3px;`

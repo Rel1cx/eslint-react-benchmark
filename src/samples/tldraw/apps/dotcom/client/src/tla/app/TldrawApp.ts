@@ -65,7 +65,7 @@ export const PUBLISH_ENDPOINT = `/api/app/publish`
 
 let appId = 0
 const useProperZero = getFromLocalStorage('useProperZero') === 'true'
-// eslint-disable-next-line no-console
+ 
 console.log('useProperZero', useProperZero)
 // @ts-expect-error
 window.zero = () => {

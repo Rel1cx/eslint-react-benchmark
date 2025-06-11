@@ -1,4 +1,4 @@
-/* eslint-disable no-useless-escape */
+ 
 import { Article } from '@/types/content-types'
 import { Database } from 'sqlite'
 import sqlite3 from 'sqlite3'

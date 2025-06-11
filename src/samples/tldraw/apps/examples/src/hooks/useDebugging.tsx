@@ -11,15 +11,15 @@ export function useDebugging(): TLUiOverrides {
 					const selectedShapes = editor.getSelectedShapes()
 					switch (selectedShapes.length) {
 						case 0:
-							// eslint-disable-next-line no-console
+							 
 							console.log('No shapes selected')
 							break
 						case 1:
-							// eslint-disable-next-line no-console
+							 
 							console.log(selectedShapes[0])
 							break
 						default:
-							// eslint-disable-next-line no-console
+							 
 							console.log(selectedShapes)
 							break
 					}

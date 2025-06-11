@@ -21,7 +21,7 @@ import routerProvider, {
 } from "@refinedev/remix-router";
 
 import { withEmotionCache } from "@emotion/react";
-// eslint-disable-next-line no-restricted-imports
+ 
 import { unstable_useEnhancedEffect as useEnhancedEffect } from "@mui/material";
 import dataProvider from "@refinedev/simple-rest";
 import { authProvider } from "~/authProvider";
@@ -54,7 +54,7 @@ const Document = withEmotionCache(
       const tags = emotionCache.sheet.tags;
       emotionCache.sheet.flush();
       tags.forEach((tag) => {
-        // eslint-disable-next-line no-underscore-dangle
+         
         (emotionCache.sheet as any)._insertTag(tag);
       });
       // reset cache to reapply global styles

@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 /// <reference path="./.sst/platform/config.d.ts" />
 import { readFileSync } from 'fs'
 

@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 import { HistoryManager, RecordsDiff } from '@tldraw/editor'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { DiffOptions, diff as jestDiff } from 'jest-diff'

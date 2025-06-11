@@ -5,7 +5,7 @@ import KindeProvider from "@refine-auth/kinde-react";
 import App from "./App";
 
 const container = document.getElementById("root");
-// eslint-disable-next-line
+ 
 const root = createRoot(container!);
 
 root.render(

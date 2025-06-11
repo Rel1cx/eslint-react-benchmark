@@ -5,7 +5,7 @@ import { IconFilter, IconX, IconCheck } from "@tabler/icons-react";
 import type { ColumnButtonProps } from "../../interfaces";
 
 export const ColumnFilter: React.FC<ColumnButtonProps> = ({ column }) => {
-  // eslint-disable-next-line
+   
   const [state, setState] = useState(null as null | { value: any });
 
   if (!column.getCanFilter()) {
@@ -18,7 +18,7 @@ export const ColumnFilter: React.FC<ColumnButtonProps> = ({ column }) => {
     });
 
   const close = () => setState(null);
-  // eslint-disable-next-line
+   
   const change = (value: any) => setState({ value });
 
   const clear = () => {
@@ -33,7 +33,7 @@ export const ColumnFilter: React.FC<ColumnButtonProps> = ({ column }) => {
   };
 
   const renderFilterElement = () => {
-    // eslint-disable-next-line
+     
     const FilterComponent = (column.columnDef?.meta as any)?.filterElement;
 
     if (!FilterComponent && !!state) {

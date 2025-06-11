@@ -1,4 +1,4 @@
-/* eslint-disable prefer-rest-params */
+ 
 import { Computed, ComputedOptions, computed } from '@tldraw/state'
 import { useMemo } from 'react'
 

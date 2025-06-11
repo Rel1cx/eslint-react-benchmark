@@ -239,7 +239,7 @@ export class TLDrawDurableObject extends DurableObject {
 		},
 	})
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get documentInfo() {
 		return assertExists(this._documentInfo, 'documentInfo must be present')
 	}

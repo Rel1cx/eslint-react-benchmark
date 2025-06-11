@@ -91,10 +91,10 @@ define(["./workbox-eac1af49"], (workbox) => {
       plugins: [
         {
           cacheWillUpdate: async ({
-            request, // eslint-disable-line
+            request,  
             response,
-            event, // eslint-disable-line
-            state, // eslint-disable-line
+            event,  
+            state,  
           }) => {
             if (response && response.type === "opaqueredirect") {
               return new Response(response.body, {

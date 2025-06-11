@@ -3,8 +3,8 @@ import { Pie } from "@ant-design/charts";
 
 interface ChartProps {
   data: {
-    type: any; // eslint-disable-line
-    value: any; // eslint-disable-line
+    type: any;  
+    value: any;  
   }[];
 }
 
@@ -17,7 +17,7 @@ export const TaskChart: React.FC<ChartProps> = ({ data }) => {
     label: {
       type: "inner",
       offset: "-30%",
-      // eslint-disable-next-line
+       
       content: function content(_ref: any) {
         const percent = _ref.percent;
         return "".concat((percent * 100).toFixed(0), "%");

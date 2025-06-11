@@ -78,7 +78,7 @@ const router = createRouter<Environment>()
 		// forward req to the user durable object
 		const auth = await getAuth(req, env)
 		if (!auth) {
-			// eslint-disable-next-line no-console
+			 
 			console.log('auth not found')
 			return notFound()
 		}

@@ -10,7 +10,7 @@ export const PERFORMANCE_PREFIX_COLOR = PERFORMANCE_COLORS.Good
 export function measureCbDuration(name: string, cb: () => any) {
 	const start = performance.now()
 	const result = cb()
-	// eslint-disable-next-line no-console
+	 
 	console.debug(
 		`%cPerf%c ${name} took ${performance.now() - start}ms`,
 		`color: white; background: ${PERFORMANCE_PREFIX_COLOR};padding: 2px;border-radius: 3px;`,
@@ -25,7 +25,7 @@ export function measureDuration(_target: any, propertyKey: string, descriptor: P
 	descriptor.value = function (...args: any[]) {
 		const start = performance.now()
 		const result = originalMethod.apply(this, args)
-		// eslint-disable-next-line no-console
+		 
 		console.debug(
 			`%cPerf%c ${propertyKey} took: ${performance.now() - start}ms`,
 			`color: white; background: ${PERFORMANCE_PREFIX_COLOR};padding: 2px;border-radius: 3px;`,
@@ -55,7 +55,7 @@ export function measureAverageDuration(
 			const total = value.total + length
 			const count = value.count + 1
 			averages.set(descriptor.value, { total, count })
-			// eslint-disable-next-line no-console
+			 
 			console.debug(
 				`%cPerf%c ${propertyKey} took ${(end - start).toFixed(2)}ms | average ${(total / count).toFixed(2)}ms`,
 				`color: white; background: ${PERFORMANCE_PREFIX_COLOR};padding: 2px;border-radius: 3px;`,

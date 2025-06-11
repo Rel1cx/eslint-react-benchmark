@@ -157,7 +157,7 @@ export class PerformanceMeasurer {
 					['Total']: Number(p.totalTime.toFixed(2)),
 				})
 		)
-		// eslint-disable-next-line no-console
+		 
 		console.table(table)
 	}
 }

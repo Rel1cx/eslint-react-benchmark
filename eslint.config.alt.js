@@ -1,8 +1,4 @@
-import eslintReact from "@eslint-react/eslint-plugin";
-import eslintJs from "@eslint/js";
 import eslintPluginReact from "eslint-plugin-react";
-import eslintPluginReactHooks from "eslint-plugin-react-hooks";
-import eslintPluginReactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 
 import TSCONFIG_APP from "./tsconfig.app.json" with { type: "json" };
@@ -43,22 +39,12 @@ export default tseslint.config(
         projectService: false,
       },
     },
-    rules: {
-      "no-console": "off",
-    },
   },
   // react specific configurations
   {
     files: TSCONFIG_APP.include,
     extends: [
       eslintPluginReact.configs.flat.all,
-      // eslintPluginReactRefresh.configs.recommended,
     ],
-    // plugins: {
-    //   "react-hooks": eslintPluginReactHooks,
-    // },
-    // rules: {
-    //   ...eslintPluginReactHooks.configs.recommended.rules,
-    // },
   },
 );

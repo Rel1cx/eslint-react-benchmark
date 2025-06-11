@@ -52,7 +52,7 @@ function A11yAudit() {
 		axe.run(document, {}, (err, results) => {
 			if (err) throw err
 
-			// eslint-disable-next-line no-console
+			 
 			console.debug('[a11y]:', results)
 
 			addDialog({
@@ -90,7 +90,7 @@ const components: TLComponents = {
 function afterChangeHandler(prev: any, next: any) {
 	const tracked = trackedShapes.get()
 	if (tracked.includes(next.id)) {
-		// eslint-disable-next-line no-console
+		 
 		console.table(getDiff(prev, next))
 	}
 }

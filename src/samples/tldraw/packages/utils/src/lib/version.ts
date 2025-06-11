@@ -62,7 +62,7 @@ export function registerTldrawLibraryVersion(name?: string, version?: string, mo
 
 	if (!info.scheduledNotice) {
 		try {
-			// eslint-disable-next-line no-restricted-globals
+			 
 			info.scheduledNotice = setTimeout(() => {
 				info.scheduledNotice = null
 				checkLibraryVersions(info)
@@ -115,7 +115,7 @@ function checkLibraryVersions(info: TldrawLibraryVersionInfo) {
 			}),
 		]
 
-		// eslint-disable-next-line no-console
+		 
 		console.log(message.join('\n'))
 		info.didWarn = true
 		return
@@ -151,7 +151,7 @@ function checkLibraryVersions(info: TldrawLibraryVersionInfo) {
 			'You should configure your bundler to only import one version of each library.',
 		]
 
-		// eslint-disable-next-line no-console
+		 
 		console.log(message.join('\n'))
 		info.didWarn = true
 		return

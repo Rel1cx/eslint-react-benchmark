@@ -87,7 +87,7 @@ export class ClickManager {
 	 *
 	 * @public
 	 */
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get clickState() {
 		return this._clickState
 	}

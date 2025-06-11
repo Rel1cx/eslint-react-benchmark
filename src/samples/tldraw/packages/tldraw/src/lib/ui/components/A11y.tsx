@@ -174,7 +174,7 @@ const useA11yDebug = (msg: string | undefined) => {
 	useEffect(() => {
 		if (debugFlags.a11y.get()) {
 			const log = (msg: string) => {
-				// eslint-disable-next-line no-console
+				 
 				console.debug(
 					`%ca11y%c: ${msg}`,
 					`color: white; background: #40C057; padding: 2px;border-radius: 3px;`,

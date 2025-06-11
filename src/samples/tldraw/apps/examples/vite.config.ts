@@ -19,7 +19,7 @@ function getEnv() {
 
 const env = getEnv()
 
-// eslint-disable-next-line no-console
+ 
 console.log('build env:', env)
 
 function urlOrLocalFallback(mode: string, url: string | undefined, localFallbackPort: number) {

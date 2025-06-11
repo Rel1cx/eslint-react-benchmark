@@ -15,7 +15,7 @@ export class CubicSpline2d extends Geometry2d {
 
 	_segments?: CubicBezier2d[]
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get segments() {
 		if (!this._segments) {
 			this._segments = []

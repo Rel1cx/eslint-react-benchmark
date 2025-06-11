@@ -60,7 +60,7 @@ export const CategoryEdit = () => {
         <Controller
           control={control}
           name="isActive"
-          // eslint-disable-next-line
+           
           defaultValue={null as any}
           render={({ field }) => (
             <FormControlLabel

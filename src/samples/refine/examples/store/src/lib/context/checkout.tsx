@@ -88,7 +88,7 @@ export const CheckoutProvider: React.FC<CheckoutProviderProps> = ({
     shipping_options: ShippingOption[];
   }>({
     resource: "shipping-options",
-    // eslint-disable-next-line
+     
     id: cartId!,
     queryOptions: {
       enabled: !!cartId,

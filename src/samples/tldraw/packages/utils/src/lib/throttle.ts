@@ -27,7 +27,7 @@ function tick() {
 
 	if (time + elapsed < targetTimePerFrame) {
 		// It's up to the consumer of debounce to call `cancel`
-		// eslint-disable-next-line no-restricted-globals
+		 
 		frame = requestAnimationFrame(() => {
 			frame = undefined
 			tick()
@@ -35,7 +35,7 @@ function tick() {
 		return
 	}
 	// It's up to the consumer of debounce to call `cancel`
-	// eslint-disable-next-line no-restricted-globals
+	 
 	frame = requestAnimationFrame(() => {
 		frame = undefined
 		last = now

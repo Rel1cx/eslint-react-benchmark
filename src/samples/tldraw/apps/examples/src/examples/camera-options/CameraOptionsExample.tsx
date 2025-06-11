@@ -477,7 +477,7 @@ const CameraOptionsControlPanel = track(() => {
 				<button
 					onClick={() => {
 						editor.setCamera(editor.getCamera(), { reset: true })
-						// eslint-disable-next-line no-console
+						 
 						console.log(editor.getCameraOptions())
 					}}
 				>

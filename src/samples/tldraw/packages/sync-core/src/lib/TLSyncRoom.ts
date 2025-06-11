@@ -98,11 +98,11 @@ export class DocumentState<R extends UnknownRecord> {
 	) {
 		this._atom = atom('document:' + state.id, { state, lastChangedClock })
 	}
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get state() {
 		return this._atom.get().state
 	}
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get lastChangedClock() {
 		return this._atom.get().lastChangedClock
 	}

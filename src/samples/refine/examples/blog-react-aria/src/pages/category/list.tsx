@@ -4,7 +4,7 @@ import { type ColumnDef, flexRender } from "@tanstack/react-table";
 import { CategoryCreate } from "./create";
 
 export const CategoryList: React.FC = () => {
-  // eslint-disable-next-line
+   
   const columns = React.useMemo<ColumnDef<any>[]>(
     () => [
       {
@@ -22,7 +22,7 @@ export const CategoryList: React.FC = () => {
     [],
   );
 
-  // eslint-disable-next-line
+   
   const { getHeaderGroups, getRowModel } = useTable<any>({
     columns,
     refineCoreProps: {

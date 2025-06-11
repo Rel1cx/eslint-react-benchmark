@@ -157,7 +157,7 @@ export class AtomMap<K, V> implements Map<K, V> {
 		}
 	}
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get size() {
 		return this.atoms.get().size
 	}

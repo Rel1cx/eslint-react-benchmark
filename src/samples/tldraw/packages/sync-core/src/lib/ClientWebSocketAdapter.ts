@@ -22,7 +22,7 @@ function debug(...args: any[]) {
 	// @ts-ignore
 	if (typeof window !== 'undefined' && window.__tldraw_socket_debug) {
 		const now = new Date()
-		// eslint-disable-next-line no-console
+		 
 		console.log(
 			`${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${now.getMilliseconds()}`,
 			...args
@@ -189,7 +189,7 @@ export class ClientWebSocketAdapter implements TLPersistentClientSocket<TLRecord
 		'initial'
 	)
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get connectionStatus(): TLPersistentClientSocketStatus {
 		const status = this._connectionStatus.get()
 		return status === 'initial' ? 'offline' : status

@@ -13,7 +13,7 @@ export class Vec {
 		public z = 1
 	) {}
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get pressure() {
 		return this.z
 	}

@@ -28,7 +28,7 @@ export const PostList = () => {
           {...tableProps}
           rowKey="id"
           onRow={(record) => ({
-            // eslint-disable-next-line
+             
             onClick: (event: any) => {
               if (event.target.nodeName === "TD") {
                 setEditId?.(record.id);

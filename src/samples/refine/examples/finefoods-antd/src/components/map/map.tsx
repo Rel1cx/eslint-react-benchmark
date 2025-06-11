@@ -64,7 +64,7 @@ const MapComponent: FC<PropsWithChildren<MapProps>> = ({
       <div ref={ref} style={{ flexGrow: "1", height: "100%" }} />
       {Children.map(children, (child) => {
         if (isValidElement(child)) {
-          // eslint-disable-next-line
+           
           return cloneElement<any>(child, { map });
         }
       })}

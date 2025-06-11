@@ -46,7 +46,7 @@ class __EffectScheduler__<Result> implements EffectScheduler<Result> {
 	 * Whether this scheduler is attached and actively listening to its parents.
 	 * @public
 	 */
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get isActivelyListening() {
 		return this._isActivelyListening
 	}
@@ -61,7 +61,7 @@ class __EffectScheduler__<Result> implements EffectScheduler<Result> {
 	 * The number of times this effect has been scheduled.
 	 * @public
 	 */
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get scheduleCount() {
 		return this._scheduleCount
 	}

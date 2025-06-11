@@ -73,7 +73,7 @@ export const CartProvider: React.FC<PropsWithChildren> = ({ children }) => {
     isFetching: cartIsFetching,
   } = useOne<StoreCartsRes>({
     resource: "carts",
-    // eslint-disable-next-line
+     
     id: cartId!,
     queryOptions: {
       enabled: !!cartId,

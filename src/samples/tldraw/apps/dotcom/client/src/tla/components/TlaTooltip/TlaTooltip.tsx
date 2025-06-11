@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-syntax */
+ 
 import classNames from 'classnames'
 import { Tooltip as _Tooltip } from 'radix-ui'
 import React from 'react'

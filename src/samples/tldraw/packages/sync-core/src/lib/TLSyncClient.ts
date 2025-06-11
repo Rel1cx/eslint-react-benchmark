@@ -160,7 +160,7 @@ export class TLSyncClient<R extends UnknownRecord, S extends Store<R> = Store<R>
 	private isDebugging = false
 	private debug(...args: any[]) {
 		if (this.isDebugging) {
-			// eslint-disable-next-line no-console
+			 
 			console.debug(...args)
 		}
 	}

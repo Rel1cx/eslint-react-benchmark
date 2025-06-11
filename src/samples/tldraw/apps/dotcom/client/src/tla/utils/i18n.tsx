@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-imports */
+ 
 
 import {
 	FormattedMessage,
@@ -17,7 +17,7 @@ import md5 from 'md5'
 import { ComponentPropsWithoutRef } from 'react'
 
 // Re-export everything and override below what we want to override.
-// eslint-disable-next-line
+ 
 export * from 'react-intl'
 
 export function useMsg(

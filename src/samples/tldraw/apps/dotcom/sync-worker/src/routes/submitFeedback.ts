@@ -63,7 +63,7 @@ export async function submitFeedback(req: IRequest, env: Environment) {
 			throw new Error(`Failed to send feedback to Discord: ${res.status} ${await res.text()}`)
 		}
 	} else {
-		// eslint-disable-next-line no-console
+		 
 		console.log('Feedback submitted:', payload)
 	}
 

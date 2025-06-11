@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 import { existsSync, readFileSync, readdirSync } from 'fs'
 import { createServer } from 'http'
 import { Kysely, PostgresDialect, sql } from 'kysely'
@@ -70,7 +70,7 @@ async function waitForPostgres() {
 			console.log('Waiting for postgres' + '.'.repeat(attempts))
 			await new Promise((resolve) => setTimeout(resolve, 500))
 		}
-		// eslint-disable-next-line no-constant-condition
+		 
 	} while (true)
 	await sql.raw(init).execute(db)
 }

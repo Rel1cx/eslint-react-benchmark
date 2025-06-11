@@ -1,4 +1,4 @@
-/* eslint-disable prefer-rest-params */
+ 
 import { Signal, computed, react } from '@tldraw/state'
 import { useMemo, useRef, useSyncExternalStore } from 'react'
 

@@ -42,7 +42,7 @@ export const PostCreate: React.FC = () => {
         <Controller
           control={control}
           name="status"
-          // eslint-disable-next-line
+           
           defaultValue={null as any}
           render={({ field }) => (
             <Autocomplete<IStatus>
@@ -69,7 +69,7 @@ export const PostCreate: React.FC = () => {
         <Controller
           control={control}
           name="category"
-          // eslint-disable-next-line
+           
           defaultValue={null as any}
           render={({ field }) => (
             <Autocomplete<ICategory>

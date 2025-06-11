@@ -28,7 +28,7 @@ async function buildApi(sourcePackageDir: string) {
 
 				if (process.env.PRINT_GITHUB_ANNOTATIONS) {
 					const errorMatch = line.match(
-						// eslint-disable-next-line no-control-regex
+						 
 						/^(?:\u001b\[33m)?(Warning|Error): (.+?):(\d+):(\d+) - \((.*)\) (.*)(?:\u001b\[39m)?$/
 					)
 					if (errorMatch) {

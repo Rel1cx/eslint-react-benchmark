@@ -14,7 +14,7 @@ export class Polyline2d extends Geometry2d {
 
 	_segments?: Edge2d[]
 
-	// eslint-disable-next-line no-restricted-syntax
+	 
 	get segments() {
 		if (!this._segments) {
 			this._segments = []

@@ -1,4 +1,3 @@
-import eslintReact from "@eslint-react/eslint-plugin";
 import tseslint from "typescript-eslint";
 
 import TSCONFIG_APP from "./tsconfig.app.json" with { type: "json" };
@@ -39,15 +38,12 @@ export default tseslint.config(
         projectService: false,
       },
     },
-    rules: {
-      "no-console": "off",
-    },
   },
   // react specific configurations
   {
     files: TSCONFIG_APP.include,
     extends: [
-      eslintReact.configs.all,
+      // no rules enabled
     ],
   },
 );
