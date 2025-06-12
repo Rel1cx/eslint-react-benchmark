@@ -1,7 +1,6 @@
 {
   "extends": [
-    "@tsconfig/strictest/tsconfig.json",
-    "@tsconfig/vite-react/tsconfig.json"
+    "@tsconfig/strictest/tsconfig.json"
   ],
   "compilerOptions": {
     "target": "ES2021",
@@ -11,8 +10,7 @@
       "DOM.Iterable"
     ],
     "types": [
-      "@types/node",
-      "vite/client"
+      "@types/node"
     ],
     "erasableSyntaxOnly": true
   },
