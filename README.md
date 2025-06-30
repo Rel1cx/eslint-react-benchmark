@@ -1,4 +1,4 @@
-# react-linter-benchmark
+# eslint-react-benchmark
 
 ## Run Benchmark
 
@@ -47,7 +47,7 @@ TIMING=all pnpm eslint ./src/samples -c ./eslint.config.dry.js
 Rule | Time (ms) | Relative
 :----|----------:|--------:
 
-react-linter-benchmark on  main [$!+] via ⬢ v24.1.0 took 17s
+eslint-react-benchmark on  main [$!+] via ⬢ v24.1.0 took 17s
 ```
 
 ## `eslint-plugin-react`
@@ -165,7 +165,7 @@ react/forward-ref-uses-ref                  |     9.193 |     0.0%
 react/state-in-constructor                  |     2.751 |     0.0%
 react/no-redundant-should-component-update  |     2.542 |     0.0%
 
-react-linter-benchmark on  main [$+] via ⬢ v24.1.0 took 1m0s
+eslint-react-benchmark on  main [$+] via ⬢ v24.1.0 took 1m0s
 ```
 
 ## `@eslint-react/eslint-plugin`
@@ -267,7 +267,7 @@ Rule                                                               | Time (ms) |
 @eslint-react/no-unsafe-component-will-update                      |     7.790 |     0.2%
 @eslint-react/no-complex-conditional-rendering                     |     7.045 |     0.2%
 
-react-linter-benchmark on  main [$+] via ⬢ v24.1.0 took 27s
+eslint-react-benchmark on  main [$+] via ⬢ v24.1.0 took 27s
 ```
 
 ## Significant Differences
